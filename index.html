@@ -5,11 +5,118 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vite App</title>
+  <title>App Salon - EPN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/styles/normalize.css">
+  <link rel="stylesheet" href="./src/styles/main.css">
 </head>
 
 <body>
+  <header id="header">
+    <div class="header-logo">
+      <img src="/assets/svgs/barbershop_logo.svg" alt="Barbershop Logo">
+    </div>
+    <nav>
+      <ul class="nav-items">
+        <li><a href="#header">Inicio</a></li>
+        <li><a href="#our-services">Nuestros servicios</a></li>
+        <li><a href="#about-us">Sobre nosotros</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="header-barber-image">
+    <img src="/assets/images/barbershop.jpg" alt="Barber">
+  </div>
+  <main class="forms">
+    <div class="toggle-forms">
+      <button class="selected">Iniciar Sesión</button>
+      <button>Crear Cuenta</button>
+    </div>
+    <form class="login-form">
+      <div class="form-logo">
+        <img src="/assets/svgs/barbershop_logo.svg" alt="Barbershop Logo">
+        <p>Ingresa tus credenciales para poder agendar citas</p>
+      </div>
+      <label for="email">
+        <p>Correo electrónico:</p>
+        <input id="email" name="email" type="email" placeholder="Escribe tu email">
+      </label>
+      <label for="password">
+        <p>Contraseña:</p>
+        <div class="input-password">
+          <input id="password" name="password" type="password" placeholder="Escribe tu contraseña">
+          <button>Mostrar</button>
+        </div>
+      </label>
+      <input type="submit" value="Iniciar Sesión">
+      <a href="#">Olvidé mi contraseña</a>
+    </form>
+  </main>
+  <section id="our-services">
+    <h3 class="section-title">Nuestros Servicios</h3>
+    <div class="scrolling-containter">
+      <div class="card-service">
+        <p class="title">Barbería</p>
+        <img src="/assets/images/barber_service.png" alt="Barber Service">
+        <p class="description">Todo tipo de cortes de barbas y afeitados.</p>
+      </div>
+      <div class="card-service">
+        <p class="title">Peluquería</p>
+        <img src="/assets/images/haircut_service.png" alt="Haircut Service">
+        <p class="description">Todo tipo de cortes de barbas y afeitados.</p>
+      </div>
+      <div class="card-service">
+        <p class="title">Todo tipo de cortes</p>
+        <img src="/assets/images/all_haircut_service.png" alt="All haircuts Service">
+        <p class="description">Todo tipo de cortes de barbas y afeitados.</p>
+      </div>
+    </div>
+  </section>
+  <section id="about-us">
+    <h3 class="section-title">Sobre Nosotros</h3>
+    <img src="/assets/images/barbershop_about_us.png" alt="Barber Service">
+    <p class="description">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed lectus a lacus consectetur eleifend. Nulla
+      porta laoreet malesuada. Donec vel ipsum arcu. Pellentesque egestas mauris eu tortor convallis dictum. Maecenas ac
+      ante lacus. Etiam laoreet lectus mauris, vel interdum arcu luctus finibus.
+    </p>
+  </section>
 
+  <footer>
+    <section class="location-section">
+      <img class="logo" src="/assets/svgs/barbershop_logo_white.svg" alt="Barbershop Logo">
+      <div class="location">
+        <img src="/assets/svgs/pin_location.svg" alt="Pin location">
+        <p>Quito, Pinchincha - Ecuador</p>
+      </div>
+    </section>
+    <section class="contact-section">
+      <h3>Contáctanos</h3>
+      <div class="contacts">
+        <a href="#">
+          <img src="/assets/svgs/whatsapp.svg" alt="Contact for Whatsapp">
+        </a>
+        <a href="#">
+          <img src="/assets/svgs/telegram.svg" alt="Contact for Telegram">
+        </a>
+        <a href="#">
+          <img src="/assets/svgs/instagram.svg" alt="Contact for Instagram">
+        </a>
+      </div>
+    </section>
+    <section class="rigths-contact">
+      <p class="text">2023 ® Todos los derechos reservados</p>
+      <div class="reserved-rigths">
+        <img src="/assets/images/epn_logo.png" alt="EPN logo">
+        <div class="company-name">
+          <p>Kaizen</p>
+          <p>Tech</p>
+        </div>
+      </div>
+    </section>
+  </footer>
 </body>
 
 </html>

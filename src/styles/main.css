@@ -1,0 +1,316 @@
+:root {
+  /* Font */
+  --main-font: 'Poppins', sans-serif;
+  --black: 900;
+  --bold: 700;
+  --medium: 500;
+  --regular: 400;
+  /* Colors */
+  --main-yellow: #FEAE37;
+  --darken-main-yellow: #fb9f16;
+  --back-color: #F8FAFC;
+  --footer-color: #1A1B15;
+  --white: #FFF;
+  --gray: #D9D9D9;
+  --darken-gray:#A3A3A3;
+  /* utils */
+  --spacing: 5rem;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--main-font);
+  font-size: 1.6rem;
+  background-color: var(--back-color);
+  scroll-behavior: smooth;
+}
+
+.contenedor {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3 {
+  font-family: var(--main-font);
+  margin: 0 0 var(--spacing) / 2 0 ;
+  font-weight: 900;
+  text-align: center;
+}
+
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 3.6rem;
+}
+h3 {
+  font-size: 3rem;
+}
+
+li {
+  list-style: none;
+}
+
+header {
+  padding: .5rem;
+}
+
+header .header-logo {
+  margin: .5rem 0;
+  text-align: center;
+}
+
+nav .nav-items {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;  
+}
+
+nav .nav-items a {
+  transition: all .3s ease-in-out;
+}
+
+nav .nav-items a:hover {
+  color: var(--main-yellow);
+  text-decoration: underline;
+}
+
+.forms {
+  margin: 1.5rem .5rem;
+  box-shadow: 0px 0px 2px;
+  background-color: var(--white);
+}
+
+.forms .toggle-forms {
+  display: flex;  
+}
+.forms .toggle-forms button {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--white);
+  border: none;
+  font-weight: var(--black);
+  cursor: pointer;
+  transition: all .3s ease-in;
+}
+
+.forms .toggle-forms button:hover {
+  color: var(--main-yellow);
+  background-color: var(--gray);
+}
+
+.forms .toggle-forms .selected {
+  color: var(--main-yellow);
+  background-color: var(--gray);
+}
+
+.forms .login-form {
+  padding: 1rem;
+}
+
+.login-form .form-logo {
+  text-align: center;
+  margin: 1rem 0;
+}
+.login-form .form-logo p {
+  font-size: 1.4rem;
+  color: rgb(150,150,150);
+}
+.login-form label {
+  display: block;
+  margin: 1rem 0;
+}
+.login-form label p {
+  text-align: left;
+  margin-bottom: .5rem;
+  font-weight: var(--medium);
+}
+
+.login-form label input {
+  width: 100%;
+  padding: 1rem .5rem;
+  border: 1px solid var(--footer-color);
+  border-radius: .5rem;
+  font-size: 1.4rem;
+}
+
+.login-form .input-password {
+  display: flex;
+  border: 1px solid var(--footer-color);
+  border-radius: .5rem;
+}
+.login-form .input-password input{
+  border-radius: .5rem 0 0 .5rem;
+  border: none;
+}
+.login-form .input-password button{
+  border: none;
+  background-color: var(--gray);
+  cursor: pointer;
+  border-radius: 0 .5rem .5rem 0;
+  padding: .5rem 1rem;
+  font-size: 1.4rem;
+  transition: all .3s;
+}
+.login-form .input-password button:hover {
+  background-color: var(--darken-gray);
+  color: var(--white);
+}
+
+.login-form input[type="submit"] {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: none;
+  background-color: var(--main-yellow);
+  border-radius: .5rem;
+  color: var(--white);
+  text-transform: uppercase;
+  font-weight: var(--bold);  
+  transition: all .5s;
+}
+
+.login-form input[type="submit"]:hover {
+  background-color: var(--darken-main-yellow);
+  cursor: pointer;
+}
+
+.forms .login-form a {
+  display: block;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+.forms .login-form a:hover {
+  text-decoration: underline;
+}
+section .section-title {
+  margin: 1.5rem 0;
+  color: var(--main-yellow);
+  font-size: 2.6rem;
+}
+.scrolling-containter {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;  
+}
+
+.scrolling-containter .card-service {
+  margin: 0 1rem;
+  min-width: 21rem;
+  min-height: 18rem;
+  border: 1px solid var(--darken-gray);
+  border-radius: .5rem;
+  box-shadow: 0px 0px 3px var(--darken-gray);
+}
+.card-service .title {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: var(--bold);
+  margin: 1rem 0;
+}
+
+.card-service img {
+  display: block;
+  margin: .5rem auto;
+  width: 7rem;
+}
+
+.card-service .description {
+  text-align: center;
+}
+#about-us {
+  padding: 1rem;
+}
+#about-us img {
+  display: block;
+  width: 95%;
+  margin: 0 auto;
+  box-shadow: 0px 0px 3px var(--darken-gray);
+  border-radius: .5rem;
+}
+#about-us .description {
+  margin: 1rem;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+footer {
+  background-color: var(--footer-color);
+  color: var(--white);
+}
+footer section {
+  padding: 1rem 0 2rem 0;
+  border-bottom: 1px solid var(--darken-gray);
+}
+
+footer section:last-child {
+  border-bottom: none;
+}
+.location-section .logo {
+  display: block;
+  margin: 0rem auto;
+  padding: 1rem 0 0 0;
+}
+.location-section .location {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.contact-section h3 {
+  margin: .5rem 0 1.5rem 0;
+}
+
+.contact-section .contacts {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.contact-section .contacts a img {
+  transition: .5s;
+}
+
+.contact-section .contacts a img:hover {
+  transform: scale(1.05);
+}
+
+.rigths-contact .text {
+  text-align: center;
+  margin: .5rem 0 1.5rem 0;
+}
+
+.rigths-contact .reserved-rigths {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.rigths-contact .reserved-rigths img {
+  width: 10rem;
+}
+
+.reserved-rigths .company-name {
+  font-size: 4.8rem;
+  font-weight: var(--black);
+}
