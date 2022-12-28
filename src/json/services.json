@@ -1,0 +1,54 @@
+{
+  "services": [
+      {
+          "id": 1,
+          "nombre": "Corte de Cabello Mujer",
+          "precio": 5.00
+      },
+      {
+          "id": 2,
+          "nombre": "Corte de Cabello Niño",
+          "precio": 3.50
+      },
+      {
+          "id": 3,
+          "nombre": "Corte de Cabello Hombre",
+          "precio": 4.00
+      },
+      {
+          "id": 4,
+          "nombre": "Corte de Barba",
+          "precio": 4.00
+      },
+      {
+          "id": 5,
+          "nombre": "Peinado Hombre",
+          "precio": 3.00
+      },
+      {
+          "id": 6,
+          "nombre": "Peinado Mujer",
+          "precio": 6.00
+      },
+      {
+          "id": 7,
+          "nombre": "Tinte",
+          "precio": 7.00
+      },
+      {
+          "id": 8,
+          "nombre": "Uñas",
+          "precio": 4.00
+      },
+      {
+          "id": 9,
+          "nombre": "Lavado de Cabello",
+          "precio": 3.00
+      },
+      {
+          "id": 10,
+          "nombre" : "Tratamiento Capilar",
+          "precio": 10.00
+      }
+  ]
+}
