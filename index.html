@@ -26,34 +26,62 @@
       </ul>
     </nav>
   </header>
-  <div class="header-barber-image">
-    <img src="/assets/images/barbershop.jpg" alt="Barber">
-  </div>
-  <main class="forms">
-    <div class="toggle-forms">
-      <button class="selected">Iniciar Sesión</button>
-      <button>Crear Cuenta</button>
+  <div class="container-image">
+    <div class="header-barber-image">
+      <img src="/assets/images/barbershop.jpg" alt="Barber">
     </div>
-    <form class="login-form">
-      <div class="form-logo">
-        <img src="/assets/svgs/barbershop_logo.svg" alt="Barbershop Logo">
-        <p>Ingresa tus credenciales para poder agendar citas</p>
+    <main class="forms">
+      <div class="toggle-forms">
+        <button class="login-button selected">Iniciar Sesión</button>
+        <button class="create-account-button">Crear Cuenta</button>
       </div>
-      <label for="email">
-        <p>Correo electrónico:</p>
-        <input id="email" name="email" type="email" placeholder="Escribe tu email">
-      </label>
-      <label for="password">
-        <p>Contraseña:</p>
-        <div class="input-password">
-          <input id="password" name="password" type="password" placeholder="Escribe tu contraseña">
-          <button>Mostrar</button>
+      <form class="form-style login-form">
+        <div class="form-logo">
+          <img src="/assets/svgs/barbershop_logo.svg" alt="Barbershop Logo">
+          <p>Ingresa tus credenciales para poder agendar citas</p>
         </div>
-      </label>
-      <input type="submit" value="Iniciar Sesión">
-      <a href="#">Olvidé mi contraseña</a>
-    </form>
-  </main>
+        <label for="login-email">
+          <p>Correo electrónico:</p>
+          <input id="login-email" name="email" type="email" placeholder="Escribe tu email">
+        </label>
+        <label for="login-password">
+          <p>Contraseña:</p>
+          <div class="input-password">
+            <input id="login-password" name="password" type="password" placeholder="Escribe tu contraseña">
+            <button>Mostrar</button>
+          </div>
+        </label>
+        <input type="submit" value="Iniciar Sesión">
+        <a href="#">Olvidé mi contraseña</a>
+      </form>
+      <form class="form-style create-account-form hidden">
+        <div class="form-logo">
+          <img src="/assets/svgs/barbershop_logo.svg" alt="Barbershop Logo">
+          <p>Ingresa tus credenciales para poder agendar citas</p>
+        </div>
+        <label for="name">
+          <p>Nombre:</p>
+          <input id="name" name="name" type="text" placeholder="Escribe tu nombre">
+        </label>
+        <label for="phone">
+          <p>Teléfono:</p>
+          <input id="phone" name="phone" type="phone" placeholder="Escribe tu teléfono">
+        </label>
+        <label for="create-email">
+          <p>Correo electrónico:</p>
+          <input id="create-email" name="email" type="email" placeholder="Escribe tu email">
+        </label>
+        <label for="create-password">
+          <p>Contraseña:</p>
+          <div class="input-password">
+            <input id="create-password" name="password" type="password" placeholder="Escribe tu contraseña">
+            <button>Mostrar</button>
+          </div>
+        </label>
+        <input type="submit" value="Crear cuenta">
+      </form>
+    </main>
+  </div>
   <section id="our-services">
     <h3 class="section-title">Nuestros Servicios</h3>
     <div class="scrolling-containter">
@@ -76,36 +104,41 @@
   </section>
   <section id="about-us">
     <h3 class="section-title">Sobre Nosotros</h3>
-    <img src="/assets/images/barbershop_about_us.png" alt="Barber Service">
-    <p class="description">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed lectus a lacus consectetur eleifend. Nulla
-      porta laoreet malesuada. Donec vel ipsum arcu. Pellentesque egestas mauris eu tortor convallis dictum. Maecenas ac
-      ante lacus. Etiam laoreet lectus mauris, vel interdum arcu luctus finibus.
-    </p>
+    <div class="about-us-container">
+      <img src="/assets/images/barbershop_about_us.png" alt="Barber Service">
+      <p class="description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed lectus a lacus consectetur eleifend. Nulla
+        porta laoreet malesuada. Donec vel ipsum arcu. Pellentesque egestas mauris eu tortor convallis dictum. Maecenas
+        ac
+        ante lacus. Etiam laoreet lectus mauris, vel interdum arcu luctus finibus.
+      </p>
+    </div>
   </section>
 
   <footer>
-    <section class="location-section">
-      <img class="logo" src="/assets/svgs/barbershop_logo_white.svg" alt="Barbershop Logo">
-      <div class="location">
-        <img src="/assets/svgs/pin_location.svg" alt="Pin location">
-        <p>Quito, Pinchincha - Ecuador</p>
-      </div>
-    </section>
-    <section class="contact-section">
-      <h3>Contáctanos</h3>
-      <div class="contacts">
-        <a href="#">
-          <img src="/assets/svgs/whatsapp.svg" alt="Contact for Whatsapp">
-        </a>
-        <a href="#">
-          <img src="/assets/svgs/telegram.svg" alt="Contact for Telegram">
-        </a>
-        <a href="#">
-          <img src="/assets/svgs/instagram.svg" alt="Contact for Instagram">
-        </a>
-      </div>
-    </section>
+    <div class="footer-up">
+      <section class="location-section">
+        <img class="logo" src="/assets/svgs/barbershop_logo_white.svg" alt="Barbershop Logo">
+        <div class="location">
+          <img src="/assets/svgs/pin_location.svg" alt="Pin location">
+          <p>Quito, Pinchincha - Ecuador</p>
+        </div>
+      </section>
+      <section class="contact-section">
+        <h3>Contáctanos</h3>
+        <div class="contacts">
+          <a href="#">
+            <img src="/assets/svgs/whatsapp.svg" alt="Contact for Whatsapp">
+          </a>
+          <a href="#">
+            <img src="/assets/svgs/telegram.svg" alt="Contact for Telegram">
+          </a>
+          <a href="#">
+            <img src="/assets/svgs/instagram.svg" alt="Contact for Instagram">
+          </a>
+        </div>
+      </section>
+    </div>
     <section class="rigths-contact">
       <p class="text">2023 ® Todos los derechos reservados</p>
       <div class="reserved-rigths">
@@ -117,6 +150,7 @@
       </div>
     </section>
   </footer>
+  <script src="./src/js/main.js"></script>
 </body>
 
 </html>

@@ -124,29 +124,33 @@ nav .nav-items a:hover {
   background-color: var(--gray);
 }
 
-.forms .login-form {
+.hidden {
+  display: none;
+}
+
+.forms .form-style {
   padding: 1rem;
 }
 
-.login-form .form-logo {
+.form-style .form-logo {
   text-align: center;
   margin: 1rem 0;
 }
-.login-form .form-logo p {
+.form-style .form-logo p {
   font-size: 1.4rem;
   color: rgb(150,150,150);
 }
-.login-form label {
+.form-style label {
   display: block;
   margin: 1rem 0;
 }
-.login-form label p {
+.form-style label p {
   text-align: left;
   margin-bottom: .5rem;
   font-weight: var(--medium);
 }
 
-.login-form label input {
+.form-style label input {
   width: 100%;
   padding: 1rem .5rem;
   border: 1px solid var(--footer-color);
@@ -154,16 +158,16 @@ nav .nav-items a:hover {
   font-size: 1.4rem;
 }
 
-.login-form .input-password {
+.form-style .input-password {
   display: flex;
   border: 1px solid var(--footer-color);
   border-radius: .5rem;
 }
-.login-form .input-password input{
+.form-style .input-password input{
   border-radius: .5rem 0 0 .5rem;
   border: none;
 }
-.login-form .input-password button{
+.form-style .input-password button{
   border: none;
   background-color: var(--gray);
   cursor: pointer;
@@ -172,12 +176,12 @@ nav .nav-items a:hover {
   font-size: 1.4rem;
   transition: all .3s;
 }
-.login-form .input-password button:hover {
+.form-style .input-password button:hover {
   background-color: var(--darken-gray);
   color: var(--white);
 }
 
-.login-form input[type="submit"] {
+.form-style input[type="submit"] {
   width: 100%;
   margin-top: 1.5rem;
   padding: 1rem;
@@ -190,17 +194,17 @@ nav .nav-items a:hover {
   transition: all .5s;
 }
 
-.login-form input[type="submit"]:hover {
+.form-style input[type="submit"]:hover {
   background-color: var(--darken-main-yellow);
   cursor: pointer;
 }
 
-.forms .login-form a {
+.forms .form-style a {
   display: block;
   text-align: center;
   margin: 1.5rem 0;
 }
-.forms .login-form a:hover {
+.forms .form-style a:hover {
   text-decoration: underline;
 }
 section .section-title {
@@ -257,6 +261,7 @@ section .section-title {
 footer {
   background-color: var(--footer-color);
   color: var(--white);
+  margin-top: 5rem;
 }
 footer section {
   padding: 1rem 0 2rem 0;
@@ -313,4 +318,118 @@ footer section:last-child {
 .reserved-rigths .company-name {
   font-size: 4.8rem;
   font-weight: var(--black);
+}
+
+@media(min-width: 768px){
+    #header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    nav .nav-items {
+      gap: 5rem;
+      font-size: 1.8rem;
+    }
+    .container-image {
+      position: relative;
+    }
+    .container-image .header-barber-image {
+      max-height: 60rem;
+      overflow: hidden;
+    }
+    .container-image .forms {
+      position: absolute;
+      right: 5rem;
+      top: 0;
+      border-radius: 1rem;
+    }
+    .container-image .forms .toggle-forms {
+      border-radius: 1rem 1rem 0 0;
+    }
+    .toggle-forms .login-button {
+      border-radius: 1rem 0 0 0;
+    }
+    .toggle-forms .create-account-button {
+      border-radius: 0 1rem 0 0;
+    }
+
+    section .section-title {
+      font-size: 3.6rem;
+      margin-top: 5rem;
+      margin-bottom: 3rem;
+    }
+
+    #our-services .scrolling-containter {
+      overflow: visible;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .scrolling-containter .card-service {
+      max-width: 38rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .scrolling-containter .card-service .title {
+      font-size: 2.8rem;
+    }
+    .scrolling-containter .card-service img {
+      width: 12rem;
+      height: 12rem;
+    }
+    .about-us-container {
+      display: flex;
+      align-items: center;
+      max-width: 60rem;
+      margin: 0 auto;
+      gap: 4rem;
+    }
+    #about-us .about-us-container img {      
+      width: 50%
+    }
+    #about-us .about-us-container .description {
+      line-height: 3rem;
+    }
+    footer {
+      padding: 0 2.5rem;
+      margin-top: 10rem;
+    }
+    footer section {
+      border: none;
+    }
+    footer .footer-up {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--darken-gray);
+    }
+    footer .contact-section img {
+      width: 4rem;
+    }
+}
+@media(min-width: 990px){
+  .forms {
+    width: 45rem;
+  }
+  .forms .form-style {
+    padding: 1rem 3rem 2rem 3rem;
+  }
+  #our-services .scrolling-containter {
+    gap: 2rem;
+  }
+  .scrolling-containter .card-service .title {
+    font-size: 3.2rem;
+  }
+  .scrolling-containter .card-service img {
+    width: 16rem;
+    height: 16rem;
+  }
+  .about-us-container  {
+    max-width: 80rem;
+  }
+  footer .footer-up {
+    padding: 0 10rem;
+  }
 }
