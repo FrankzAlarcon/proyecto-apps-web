@@ -80,6 +80,9 @@ header .header-logo {
   margin: .5rem 0;
   text-align: center;
 }
+.hidden {
+  display: none;
+}
 
 .container {
   display: flex;
@@ -124,6 +127,7 @@ header .header-logo {
   border-bottom: 2px solid var(--footer-color);
 }
 .options .option {
+  width: 100%;
   padding: 1.5rem .5rem;
   background-color: transparent;
   border: none;
@@ -196,8 +200,89 @@ header .header-logo {
   .rigth-container .options .option {
     width: 100%;
   }
+  .container-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
-@media(min-width: 990px){
-    
+.information-container h3 {
+  margin-top: 1.5rem;
+}
+.information-container p {
+  text-align: center;
+}
+
+.information-container .information-form {
+  padding: 2rem 1.5rem;
+}
+
+.information-form label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.information-form label span {
+  min-width: 7rem;
+}
+.information-form input {
+  padding: 1rem;
+  width: 100%;
+}
+
+@media(min-width: 768px){
+  .information-container .information-form {
+    padding: 3rem;
+  }
+  .information-form label {
+    margin-bottom: 2rem;
+  }
+}
+
+.summary-container {
+  padding: 1.5rem 1rem;
+}
+.summary-container>div {
+  margin-bottom: 1rem;
+}
+
+.summary-container h3{
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-container .summary-service-container {
+  padding: 1rem;
+  border-bottom: 1px solid var(--darken-gray);
+}
+.summary-container .summary-service-container p {
+  margin-bottom: 0.5rem;
+}
+.summary-service-container p span {
+  font-weight: var(--bold);
+}
+.summary-appointment p {
+  margin-bottom: 1rem;
+}
+.summary-appointment p span {
+  font-weight: var(--bold);
+  color: var(--main-yellow);
+}
+
+.summary-container .reserve-appointment {
+  border: none;
+  background-color: var(--main-yellow);
+  padding: 1.5rem 3rem;
+  font-weight: var(--bold);
+  color: var(--white);
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: .5s ease;
+}
+
+.summary-container .reserve-appointment:hover {
+  transform: scale(1.01);
+  background-color: var(--darken-main-yellow);
 }
