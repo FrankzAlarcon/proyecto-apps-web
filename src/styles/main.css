@@ -13,6 +13,8 @@
   --white: #FFF;
   --gray: #D9D9D9;
   --darken-gray:#A3A3A3;
+  --green: #84cc16;
+  --red: #dc2626;
   /* utils */
   --spacing: 5rem;
 }
@@ -179,6 +181,21 @@ nav .nav-items a:hover {
 .form-style .input-password button:hover {
   background-color: var(--darken-gray);
   color: var(--white);
+}
+
+.form-message {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  color: var(--white);
+}
+
+.success {
+  background-color: var(--green);
+}
+
+.error {
+  background-color: var(--red);
 }
 
 .form-style input[type="submit"] {

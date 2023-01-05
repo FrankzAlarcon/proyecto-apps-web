@@ -48,9 +48,10 @@
           <p>Contraseña:</p>
           <div class="input-password">
             <input id="login-password" name="password" type="password" placeholder="Escribe tu contraseña">
-            <button>Mostrar</button>
+            <button class="show-password-button" type="button">Mostrar</button>
           </div>
         </label>
+        <p class="login-form-message form-message hidden"></p>
         <input type="submit" value="Iniciar Sesión">
         <a href="./src/views/recovery-password.html">Olvidé mi contraseña</a>
       </form>
@@ -75,9 +76,10 @@
           <p>Contraseña:</p>
           <div class="input-password">
             <input id="create-password" name="password" type="password" placeholder="Escribe tu contraseña">
-            <button>Mostrar</button>
+            <button type="button" class="register-show-password">Mostrar</button>
           </div>
         </label>
+        <p class="create-account-form-message form-message hidden"></p>
         <input type="submit" value="Crear cuenta">
       </form>
     </main>
