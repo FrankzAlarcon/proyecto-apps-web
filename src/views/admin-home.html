@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Salon - Admin Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/normalize.css">
+  <link rel="stylesheet" href="../styles/admin-home.css">
+</head>
+
+<body>
+  <main class="container">
+    <div class="left-container">
+    </div>
+    <div class="rigth-container">
+      <header id="header">
+        <div class="header-logo">
+          <img src="/assets/svgs/barbershop_logo_white.svg" alt="Barbershop Logo">
+        </div>
+      </header>
+      <div class="user-data">
+        <h1 class="container-title">Panel de administración</h1>
+        <div class="container-data">
+          <p class="user">
+            <span>Hola: </span>Frankz Alarcón (Admin)
+          </p>
+          <button class="close-session">Cerrar Sesión</button>
+        </div>
+      </div>
+      <div class="options">
+        <button class="option appointments-button selected">Ver Citas</button>
+        <button class="option services-button">Ver Servicios</button>
+        <button class="option new-service-button">Nuevo Servicio</button>
+      </div>
+      <div class="search-appointments-container">
+        <h3>Buscar Citas</h3>
+        <label for="date" class="date-container">
+          <span>Fecha:</span>
+          <input id="date" type="date" name="date">
+        </label>
+        <div class="services-container">
+          <div class="user-data">
+            <div class="row">
+              <span>ID:</span>
+              <p>22</p>
+            </div>
+            <div class="row">
+              <span>Hora:</span>
+              <p>12:00:00</p>
+            </div>
+            <div class="row">
+              <span>Cliente:</span>
+              <p>Frankz Alarcón</p>
+            </div>
+            <div class="row">
+              <span>Email:</span>
+              <p>frankz@correo.com</p>
+            </div>
+            <div class="row">
+              <span>Teléfono:</span>
+              <p>09987654321</p>
+            </div>
+            <div class="services">
+              <h3>Servicios</h3>
+              <p>Corte de cabello Hombre <span>4.00</span></p>
+              <p>Peinado Hombre <span>2.00</span></p>
+              <p class="total"><span>Total:</span> 6.00</p>
+            </div>
+            <button class="complete-button" type="button">Completar</button>
+          </div>
+        </div>
+      </div>
+      <div class="information-container hidden">
+        <h3>Tus Datos y Cita</h3>
+        <p>Coloca tus datos y fecha de tu cita</p>
+        <form class="information-form">
+          <label for="name">
+            <span>Nombre: </span>
+            <input id="name" name="name" type="text" placeholder="Escribe tu nombre">
+          </label>
+          <label for="date">
+            <span>Fecha: </span>
+            <input id="date" name="date" type="date">
+          </label>
+          <label for="time">
+            <span>Hora: </span>
+            <input id="time" name="time" type="time" min="08:00" max="17:00">
+          </label>
+        </form>
+      </div>
+      <div class="summary-container hidden">
+        <div class="services-summary">
+          <h3>Resumen de Servicios</h3>
+          <div class="summary-service-container">
+            <p>Corte de cabello para mujer</p>
+            <p><span>Precio:</span> $5.00</p>
+          </div>
+          <div class="summary-service-container">
+            <p>Tinte de pelo</p>
+            <p><span>Precio:</span> $5.00</p>
+          </div>
+        </div>
+        <div class="summary-appointment">
+          <h3>Resumen de Cita</h3>
+          <p><span>Nombre:</span> Frankz</p>
+          <p><span>Fecha:</span> martes, 19 de octubre del 2023</p>
+          <p><span>Hora:</span> 12:00 Horas</p>
+        </div>
+        <button class="reserve-appointment">Reservar Cita</button>
+      </div>
+    </div>
+  </main>
+  <script src="../js/admin-home.js"></script>
+</body>
+
+</html>

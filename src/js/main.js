@@ -1,4 +1,5 @@
 import { showFormMessage, toggleShowPassword } from "./helpers/form";
+import { addUser, getUsers } from "./helpers/users";
 
 document.addEventListener("DOMContentLoaded", () => {
   initApp()
@@ -40,12 +41,16 @@ function handleLogin() {
   loginForm.addEventListener("submit", (evt) => {
     evt.preventDefault()
     const credentials = Object.fromEntries(new FormData(evt.target))
-    if (credentials.email  === "user@correo.com" && credentials.password === "12345678") {
-      location.href = "/src/views/home.html"
-    } else {
+    const users = getUsers()
+    const user = users.find(user => user.email === credentials.email && user.password === credentials.password)
+    if (!user) {
       const formMessage = document.querySelector(".login-form-message")
       showFormMessage(formMessage, "error", "Usuario o contraseña incorrectos")
+      return
     }
+    location.href = "/src/views/home.html"
+    evt.target.email.value = ""
+    evt.target.password.value = ""
   })
 }
 
@@ -58,8 +63,8 @@ function handleRegister() {
   const registerForm = document.querySelector(".create-account-form")
   registerForm.addEventListener("submit", (evt) => {
     evt.preventDefault()
-    const userData = Object.fromEntries(new FormData(evt.target))
-    console.log(userData)
+    const userData = Object.fromEntries(new FormData(evt.target))    
+    addUser(userData)
     const formMessage = document.querySelector(".create-account-form-message")
     showFormMessage(formMessage, "success", "Cuenta creada correctamente")
     evt.target.name.value = ""
