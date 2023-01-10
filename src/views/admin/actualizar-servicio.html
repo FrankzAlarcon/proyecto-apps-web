@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Salon - Actualizar Servicio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/normalize.css">
+  <link rel="stylesheet" href="../../styles/admin-home.css">
+</head>
+
+<body>
+  <main class="container">
+    <div class="left-container">
+    </div>
+    <div class="rigth-container">
+      <header id="header">
+        <div class="header-logo">
+          <img src="/assets/svgs/barbershop_logo_white.svg" alt="Barbershop Logo">
+        </div>
+      </header>
+      <div class="user-data">
+        <h1 class="container-title">Panel de administración</h1>
+        <div class="container-data">
+          <p class="user">
+            <span>Hola: </span>Frankz Alarcón (Admin)
+          </p>
+          <button class="close-session">Cerrar Sesión</button>
+        </div>
+      </div>
+      <div class="options">
+        <button class="option appointments-button">Ver Citas</button>
+        <button class="option services-button">Ver Servicios</button>
+        <button class="option new-service-button">Nuevo Servicio</button>
+      </div>
+      <div class="new-service-container">
+        <h3>Actualizar Servicio</h3>
+        <form class="form-new-service">
+          <label for="name-service">
+            <span>Nombre:</span>
+            <input id="name-service" name="name" type="text" placeholder="Ingresa el nombre del servicio">
+          </label>
+          <label for="price-service">
+            <span>Precio:</span>
+            <input id="price-service" name="price" type="text" placeholder="Ingresa el precio del servicio">
+          </label>
+          <input type="submit" value="Actualizar">
+        </form>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/update-service.js" type="module"></script>
+</body>
+
+</html>

@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles/normalize.css">
-  <link rel="stylesheet" href="../styles/admin-home.css">
+  <link rel="stylesheet" href="../../styles/normalize.css">
+  <link rel="stylesheet" href="../../styles/admin-home.css">
 </head>
 
 <body>
@@ -44,7 +44,7 @@
           <span>Fecha:</span>
           <input id="date" type="date" name="date">
         </label>
-        <div class="services-container">
+        <div class="appointments-container">
           <div class="user-data">
             <div class="row">
               <span>ID:</span>
@@ -76,47 +76,28 @@
           </div>
         </div>
       </div>
-      <div class="information-container hidden">
-        <h3>Tus Datos y Cita</h3>
-        <p>Coloca tus datos y fecha de tu cita</p>
-        <form class="information-form">
-          <label for="name">
-            <span>Nombre: </span>
-            <input id="name" name="name" type="text" placeholder="Escribe tu nombre">
-          </label>
-          <label for="date">
-            <span>Fecha: </span>
-            <input id="date" name="date" type="date">
-          </label>
-          <label for="time">
-            <span>Hora: </span>
-            <input id="time" name="time" type="time" min="08:00" max="17:00">
-          </label>
-        </form>
+      <div class="show-services-container hidden">
+        <h3>Servicios</h3>
+        <p>Administración de servicios</p>
+        <div class="services-container"></div>
       </div>
-      <div class="summary-container hidden">
-        <div class="services-summary">
-          <h3>Resumen de Servicios</h3>
-          <div class="summary-service-container">
-            <p>Corte de cabello para mujer</p>
-            <p><span>Precio:</span> $5.00</p>
-          </div>
-          <div class="summary-service-container">
-            <p>Tinte de pelo</p>
-            <p><span>Precio:</span> $5.00</p>
-          </div>
-        </div>
-        <div class="summary-appointment">
-          <h3>Resumen de Cita</h3>
-          <p><span>Nombre:</span> Frankz</p>
-          <p><span>Fecha:</span> martes, 19 de octubre del 2023</p>
-          <p><span>Hora:</span> 12:00 Horas</p>
-        </div>
-        <button class="reserve-appointment">Reservar Cita</button>
+      <div class="new-service-container hidden">
+        <h3>Nuevo Servicio</h3>
+        <form class="form-new-service">
+          <label for="name-service">
+            <span>Nombre:</span>
+            <input id="name-service" name="name" type="text" placeholder="Ingresa el nombre del servicio">
+          </label>
+          <label for="price-service">
+            <span>Precio:</span>
+            <input id="price-service" name="price" type="text" placeholder="Ingresa el precio del servicio">
+          </label>
+          <input type="submit" value="Guardar">
+        </form>
       </div>
     </div>
   </main>
-  <script src="../js/admin-home.js" type="module"></script>
+  <script src="../../js/admin-home.js" type="module"></script>
 </body>
 
 </html>
