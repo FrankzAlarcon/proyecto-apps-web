@@ -70,7 +70,7 @@ function renderServices() {
     updateButton.classList.add("update-button")
     updateButton.textContent = "Actualizar"
     updateButton.addEventListener("click", () => {
-      window.location = "./actualizar-servicio.html"
+      window.location = "./update-service.html"
     })
     const deteleButton = document.createElement("BUTTON")
     deteleButton.classList.add("delete-button")
