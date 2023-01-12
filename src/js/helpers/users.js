@@ -3,8 +3,9 @@ const USERS_KEY = "users"
 export function getUsers() {
   let usersString = localStorage.getItem(USERS_KEY)
   if (!usersString) {
-    localStorage.setItem(USERS_KEY, JSON.stringify([]))
-    return []
+    const initialValue = [{name: "Frankz Alarcon", phone: "0987654321", email: "frankz@correo.com", password: "12345678", role: "admin"}]    
+    localStorage.setItem(USERS_KEY, JSON.stringify(initialValue))
+    return initialValue
   }
   const users = JSON.parse(usersString)  
   return users

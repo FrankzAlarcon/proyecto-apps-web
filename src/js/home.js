@@ -1,13 +1,34 @@
-import { formatPrice } from "../helpers";
+import { clearCookie, formatPrice, getCookie } from "../helpers";
+import { getUsers } from "./helpers/users";
 import services from "../json/services.json";
+
+let user = null
 
 document.addEventListener("DOMContentLoaded", () => {
   initApp()
 })
 
 function initApp() {
+  renderUserData()
   renderServices()
   optionsNavigation()
+}
+
+function renderUserData() {
+  const email = getCookie("email")
+  const users = getUsers()
+  user = users.find(user => user.email === email)
+  console.log(user,email)
+  const userName = document.querySelector(".user-data .container-data .user")
+  const text = document.createElement("SPAN")
+  text.textContent = "Hola: "
+  userName.append(text, user.name)  
+
+  const closeSessionButton = document.querySelector(".user-data .container-data .close-session")
+  closeSessionButton.addEventListener("click", () => {
+    clearCookie("email")
+    window.location.href = "/index.html"
+  })
 }
 
 function renderServices() {

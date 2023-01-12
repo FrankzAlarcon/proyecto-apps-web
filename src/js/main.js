@@ -1,3 +1,4 @@
+import { setCookie } from "../helpers";
 import { showFormMessage, toggleShowPassword } from "./helpers/form";
 import { addUser, getUsers } from "./helpers/users";
 
@@ -40,17 +41,26 @@ function handleLogin() {
   const loginForm = document.querySelector(".login-form")
   loginForm.addEventListener("submit", (evt) => {
     evt.preventDefault()
-    const credentials = Object.fromEntries(new FormData(evt.target))
+    const credentials = Object.fromEntries(new FormData(evt.target))    
     const users = getUsers()
-    const user = users.find(user => user.email === credentials.email && user.password === credentials.password)
+    const user = users.find(user => user.email === credentials.email && user.password === credentials.password && user.role === credentials.role)
     if (!user) {
       const formMessage = document.querySelector(".login-form-message")
       showFormMessage(formMessage, "error", "Usuario o contraseña incorrectos")
       return
     }
-    location.href = "/src/views/home.html"
+    const isAdmin = user.role === "admin"    
+    if (!isAdmin) {
+      location.href = "/src/views/home.html"
+      evt.target.email.value = ""
+      evt.target.password.value = ""
+      setCookie("email", user.email)
+      return
+    }
+    location.href = "/src/views/admin/home.html"
     evt.target.email.value = ""
     evt.target.password.value = ""
+    setCookie("email", user.email)
   })
 }
 
@@ -63,9 +73,15 @@ function handleRegister() {
   const registerForm = document.querySelector(".create-account-form")
   registerForm.addEventListener("submit", (evt) => {
     evt.preventDefault()
-    const userData = Object.fromEntries(new FormData(evt.target))    
-    addUser(userData)
+    const userData = Object.fromEntries(new FormData(evt.target))
     const formMessage = document.querySelector(".create-account-form-message")
+    const users = getUsers()
+    const user = users.find(user => user.email === userData.email);
+    if (user) {
+      showFormMessage(formMessage, "error", "Ya existe una cuenta con ese email")
+      return
+    }
+    addUser({...userData, role: "customer"})
     showFormMessage(formMessage, "success", "Cuenta creada correctamente")
     evt.target.name.value = ""
     evt.target.phone.value = ""

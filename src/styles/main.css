@@ -109,7 +109,8 @@ nav .nav-items a:hover {
 .forms .toggle-forms button {
   width: 100%;
   padding: 1rem;
-  background-color: var(--white);
+  color: var(--main-yellow);
+  background-color: var(--gray);
   border: none;
   font-weight: var(--black);
   cursor: pointer;
@@ -117,13 +118,11 @@ nav .nav-items a:hover {
 }
 
 .forms .toggle-forms button:hover {
-  color: var(--main-yellow);
-  background-color: var(--gray);
+  background-color: var(--white);
 }
 
-.forms .toggle-forms .selected {
-  color: var(--main-yellow);
-  background-color: var(--gray);
+.forms .toggle-forms .selected {  
+  background-color: var(--white);
 }
 
 .hidden {
@@ -152,7 +151,7 @@ nav .nav-items a:hover {
   font-weight: var(--medium);
 }
 
-.form-style label input {
+.form-style label input, .form-style label select {
   width: 100%;
   padding: 1rem .5rem;
   border: 1px solid var(--footer-color);
