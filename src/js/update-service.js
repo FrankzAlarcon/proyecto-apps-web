@@ -19,7 +19,7 @@ function renderUserData() {
   const userName = document.querySelector(".user-data .container-data .user")
   const text = document.createElement("SPAN")
   text.textContent = "Hola: "
-  userName.append(text, user.name)
+  userName.append(text, `${user.name} (admin)`)  
   const closeSessionButton = document.querySelector(".user-data .container-data .close-session")
   closeSessionButton.addEventListener("click", () => {
     clearCookie("email")
