@@ -10,7 +10,7 @@ export const getCookie = (key) => {
   const cookie = document.cookie.split(";")
     .find(c => c.trim().startsWith(`${key}=`))
     .split("=")[1]
-    console.log(cookie)
+    // console.log(cookie)
   return JSON.parse(cookie)    
 }
 
