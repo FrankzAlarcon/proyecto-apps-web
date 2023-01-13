@@ -41,7 +41,12 @@ function handleLogin() {
   const loginForm = document.querySelector(".login-form")
   loginForm.addEventListener("submit", (evt) => {
     evt.preventDefault()
-    const credentials = Object.fromEntries(new FormData(evt.target))    
+    const credentials = Object.fromEntries(new FormData(evt.target))
+    if (!credentials.email || !credentials.password) {
+      const formMessage = document.querySelector(".login-form-message")
+      showFormMessage(formMessage, "error", "Todos los campos son obligatorios")
+      return
+    }
     const users = getUsers()
     const user = users.find(user => user.email === credentials.email && user.password === credentials.password && user.role === credentials.role)
     if (!user) {
