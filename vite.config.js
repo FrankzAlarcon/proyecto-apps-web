@@ -8,6 +8,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         home: resolve(__dirname, 'src/views/home.html'),
         "recovery-password": resolve(__dirname, 'src/views/recovery-password.html'),
+        "change-password": resolve(__dirname, 'src/views/change-password.html'),
         "admin-home": resolve(__dirname, 'src/views/admin/home.html'),
         "admin-update-service": resolve(__dirname, 'src/views/admin/update-service.html'),
       },
