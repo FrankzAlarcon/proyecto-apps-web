@@ -79,6 +79,11 @@ function handleRegister() {
   registerForm.addEventListener("submit", (evt) => {
     evt.preventDefault()
     const userData = Object.fromEntries(new FormData(evt.target))
+    if (!userData.name || !userData.phone || !userData.email || !userData.password) {
+      const formMessage = document.querySelector(".create-account-form-message")
+      showFormMessage(formMessage, "error", "Todos los campos son obligatorios")
+      return
+    }
     const formMessage = document.querySelector(".create-account-form-message")
     const users = getUsers()
     const user = users.find(user => user.email === userData.email);
