@@ -172,39 +172,12 @@ header .header-logo {
   transform: scale(1.05);
 
 }
-.services-container .services button .price {
+.price {
   font-size: 3.2rem;
   font-weight: var(--black);
   line-height: 1.5;
   color: var(--main-yellow);
   margin: 0;
-}
-
-@media(min-width: 768px){
-  .container {
-    flex-direction: row;
-  }
-  .container .left-container {
-    min-height: 100vh;
-  }
-  .container .rigth-container {
-    width: 100%;
-    max-height: 100vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-  .services-container .services {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-  .rigth-container .options .option {
-    width: 100%;
-  }
-  .container-data {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 }
 
 .information-container h3 {
@@ -232,15 +205,6 @@ header .header-logo {
   width: 100%;
 }
 
-@media(min-width: 768px){
-  .information-container .information-form {
-    padding: 3rem;
-  }
-  .information-form label {
-    margin-bottom: 2rem;
-  }
-}
-
 .summary-container {
   padding: 1.5rem 1rem;
 }
@@ -258,8 +222,18 @@ header .header-logo {
   border-bottom: 1px solid var(--darken-gray);
 }
 .summary-container .summary-service-container p {
-  margin-bottom: 0.5rem;
+  margin: 1rem 0;
 }
+.summary-container .total {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+.summary-container .total span {
+  font-weight: var(--bold);
+  color: var(--main-yellow);
+}
+
 .summary-service-container p span {
   font-weight: var(--bold);
 }
@@ -285,4 +259,97 @@ header .header-logo {
 .summary-container .reserve-appointment:hover {
   transform: scale(1.01);
   background-color: var(--darken-main-yellow);
+}
+
+.services-container .services .service-selected {
+  background-color: var(--main-yellow);
+  color: var(--white);
+}
+
+.service-selected>.price {
+  color: var(--white);
+}
+
+.modal {
+  display: grid;
+  place-content: center;
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */  
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */  
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */  
+}
+
+/* Modal Content */
+.modal-content {
+  border-radius: .5rem;
+  background-color: var(--white);
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid var(--gray);
+  min-width: 30rem;
+}
+
+.modal-content p {
+  margin: 1rem 0;
+}
+
+/* The Close Button */
+.close-btn {
+  background-color: var(--main-yellow);
+  color: var(--white);
+  border: none;
+  border-radius: .5rem;
+  padding: 1rem 2rem;
+  width: 100%;
+  margin: 1rem 0;
+  font-weight: var(--bold);
+  text-transform: uppercase;  
+  transition: .5s ease;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  background-color: var(--darken-main-yellow);  
+  cursor: pointer;
+}
+
+@media(min-width: 768px){
+  .container {
+    flex-direction: row;
+  }
+  .container .left-container {
+    min-height: 100vh;
+  }
+  .container .rigth-container {
+    width: 100%;
+    max-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .services-container .services {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .rigth-container .options .option {
+    width: 100%;
+  }
+  .container-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .information-container .information-form {
+    padding: 3rem;
+  }
+  .information-form label {
+    margin-bottom: 2rem;
+  }
+  .modal-content {
+    min-width: 40rem;
+    text-align: center;
+  }
 }

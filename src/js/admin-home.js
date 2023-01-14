@@ -18,7 +18,6 @@ function renderUserData() {
   const email = getCookie("email")
   const users = getUsers()
   user = users.find(user => user.email === email)
-  console.log(user,email)
   const userName = document.querySelector(".user-data .container-data .user")
   const text = document.createElement("SPAN")
   text.textContent = "Hola: "
@@ -73,7 +72,6 @@ function optionsNavigation() {
 
 function renderServices() {
   const servicesContainer = document.querySelector(".services-container");
-  console.log(servicesContainer)
   services.services.forEach(service => {
     const container = document.createElement("DIV")
     container.classList.add("service-item")

@@ -15,7 +15,6 @@ function renderUserData() {
   const email = getCookie("email")
   const users = getUsers()
   user = users.find(user => user.email === email)
-  console.log(user,email)
   const userName = document.querySelector(".user-data .container-data .user")
   const text = document.createElement("SPAN")
   text.textContent = "Hola: "

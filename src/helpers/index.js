@@ -6,11 +6,20 @@ export const formatPrice = (price) => {
   return x
 }
 
+export const formatDate = (dateString) => {
+  const date = new Date(dateString)  
+  return date.toLocaleDateString('es-ES', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    weekday: 'long'
+  })
+}
+
 export const getCookie = (key) => {  
   const cookie = document.cookie.split(";")
     .find(c => c.trim().startsWith(`${key}=`))
     .split("=")[1]
-    // console.log(cookie)
   return JSON.parse(cookie)    
 }
 
