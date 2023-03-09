@@ -1,31 +1,37 @@
-import { clearCookie, getCookie } from "../helpers"
+import { signOut } from "firebase/auth"
+import { getUserByEmail } from "../db/auth.service"
+import { auth } from "../firebase"
 import services from "../json/services.json"
-import { getUsers } from "./helpers/users"
 
-let user = null
 
-document.addEventListener("DOMContentLoaded", () => {
-  initApp()
+document.addEventListener("DOMContentLoaded", async () => {
+  await initApp()
 })
 
-function initApp() {
-  renderUserData()
+async function initApp() {
+  await renderUserData()
   optionsNavigation()
   renderServices()
 }
 
-function renderUserData() {
-  const email = getCookie("email")
-  const users = getUsers()
-  user = users.find(user => user.email === email)
-  const userName = document.querySelector(".user-data .container-data .user")
-  const text = document.createElement("SPAN")
-  text.textContent = "Hola: "
-  userName.append(text, `${user.name} (admin)`)  
-  const closeSessionButton = document.querySelector(".user-data .container-data .close-session")
-  closeSessionButton.addEventListener("click", () => {
-    clearCookie("email")
-    window.location.href = "/index.html"
+async function renderUserData() {
+  auth.onAuthStateChanged(async (authData) => {
+    if (!authData) {
+      return window.location.href = "/index.html"
+    }
+    const user = await getUserByEmail(authData.email)
+    if (user.role !== "admin") {
+      return window.location.href = "/index.html"
+    }
+    const userName = document.querySelector(".user-data .container-data .user")
+    const text = document.createElement("SPAN")
+    text.textContent = "Hola: "
+    userName.append(text, `${user.name} (admin)`)
+    const closeSessionButton = document.querySelector(".user-data .container-data .close-session")
+    closeSessionButton.addEventListener("click", () => {
+      signOut(auth)
+      window.location.href = "/index.html"
+    })
   })
 }
 
@@ -48,7 +54,7 @@ function optionsNavigation() {
 
   const setButtonStyles = (selected, others) => {
     selected.classList.add("selected")
-    
+
     others.forEach(button => {
       button.classList.remove("selected")
     })
@@ -65,7 +71,7 @@ function optionsNavigation() {
   })
 
   newServiceButton.addEventListener("click", () => {
-    setButtonStyles(newServiceButton,[ searchAppointmentsButton, showServicesButton])
+    setButtonStyles(newServiceButton, [searchAppointmentsButton, showServicesButton])
     showContainer(summaryContainer, [informationContainer, servicesContainer])
   })
 }
@@ -77,14 +83,14 @@ function renderServices() {
     container.classList.add("service-item")
     const name = document.createElement("P")
     const titleName = document.createElement("SPAN")
-  
+
     titleName.textContent = "Nombre:"
-    name.append(titleName, service.nombre)    
+    name.append(titleName, service.nombre)
 
     const price = document.createElement("P")
     const titlePrice = document.createElement("SPAN")
     titlePrice.textContent = "Precio:"
-    price.append(titlePrice, service.precio)    
+    price.append(titlePrice, service.precio)
 
     const updateButton = document.createElement("BUTTON")
     updateButton.classList.add("update-button")
@@ -98,11 +104,11 @@ function renderServices() {
 
     const buttonsContainer = document.createElement("DIV")
     buttonsContainer.classList.add("buttons-container")
-    
+
     buttonsContainer.append(updateButton, deteleButton)
 
     container.append(name, price, buttonsContainer)
     servicesContainer.appendChild(container)
   })
-  
+
 }

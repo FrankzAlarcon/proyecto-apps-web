@@ -1,3 +1,4 @@
+import { resetPassword } from "../db/auth.service"
 import { showFormMessage, toggleShowPassword } from "./helpers/form"
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -18,11 +19,11 @@ function handleChangePassword() {
   toggleShowPassword(inputPassword, showPasswordButton)
   toggleShowPassword(inputRepeatPassword, showRepeatedPasswordButton)
 
-  form.addEventListener("submit", (evt) => {
+  form.addEventListener("submit", async (evt) => {
     evt.preventDefault()
     const passwordsData = Object.fromEntries(new FormData(evt.target))
-    const {changedPassword, repeatChangedPassword} = passwordsData    
-    
+    const { changedPassword, repeatChangedPassword } = passwordsData
+
     if (!changedPassword || !repeatChangedPassword) {
       showFormMessage(message, 'error', 'Todos los campos son obligatorios')
       return
@@ -32,11 +33,20 @@ function handleChangePassword() {
       showFormMessage(message, 'error', 'Las contraseñas no coinciden')
       return
     }
-    
+    // select oobCode from url
+    const urlParams = new URLSearchParams(window.location.search)
+    const oobCode = urlParams.get('oobCode')
+
+    try {
+      await resetPassword(oobCode, changedPassword)
+    } catch (error) {
+      return showFormMessage(message, 'error', 'Algo salió mal, intente nuevamente')
+    }
+
     showFormMessage(message, 'success', 'Contraseña cambiada con éxito')
 
     setTimeout(() => {
       window.location.href = "/index.html"
     }, 2000)
-  })  
+  })
 }

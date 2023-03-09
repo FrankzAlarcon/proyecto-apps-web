@@ -1,3 +1,7 @@
+// import { login } from "../graphql/services/auth.service";
+// import { setCookie } from "../helpers";
+import { getUserByEmail, login, register } from "../db/auth.service";
+import { auth } from "../firebase";
 import { setCookie } from "../helpers";
 import { showFormMessage, toggleShowPassword } from "./helpers/form";
 import { addUser, getUsers } from "./helpers/users";
@@ -22,7 +26,7 @@ function toggleForm() {
     loginForm.classList.remove("hidden")
     createAccountButton.classList.remove("selected")
     createAccountForm.classList.add("hidden")
-  })  
+  })
   createAccountButton.addEventListener("click", () => {
     createAccountButton.classList.add("selected")
     createAccountForm.classList.remove("hidden")
@@ -32,6 +36,7 @@ function toggleForm() {
 }
 
 function handleLogin() {
+  console.log('handle login')
   // show/hide password
   const showPasswordButton = document.querySelector(".show-password-button")
   const inputPassword = document.querySelector("#login-password")
@@ -39,7 +44,7 @@ function handleLogin() {
 
   // validate password
   const loginForm = document.querySelector(".login-form")
-  loginForm.addEventListener("submit", (evt) => {
+  loginForm.addEventListener("submit", async (evt) => {
     evt.preventDefault()
     const credentials = Object.fromEntries(new FormData(evt.target))
     if (!credentials.email || !credentials.password) {
@@ -47,25 +52,24 @@ function handleLogin() {
       showFormMessage(formMessage, "error", "Todos los campos son obligatorios")
       return
     }
-    const users = getUsers()
-    const user = users.find(user => user.email === credentials.email && user.password === credentials.password && user.role === credentials.role)
-    if (!user) {
+
+    const loggedUser = await login(credentials)
+
+    if (!loggedUser) {
       const formMessage = document.querySelector(".login-form-message")
       showFormMessage(formMessage, "error", "Usuario o contraseña incorrectos")
       return
     }
-    const isAdmin = user.role === "admin"    
-    if (!isAdmin) {
-      location.href = "/src/views/home.html"
+
+    if (loggedUser.role === "customer") {
       evt.target.email.value = ""
       evt.target.password.value = ""
-      setCookie("email", user.email)
+      location.href = "/src/views/home.html"
       return
     }
     location.href = "/src/views/admin/home.html"
     evt.target.email.value = ""
     evt.target.password.value = ""
-    setCookie("email", user.email)
   })
 }
 
@@ -76,7 +80,7 @@ function handleRegister() {
 
   // Create account
   const registerForm = document.querySelector(".create-account-form")
-  registerForm.addEventListener("submit", (evt) => {
+  registerForm.addEventListener("submit", async (evt) => {
     evt.preventDefault()
     const userData = Object.fromEntries(new FormData(evt.target))
     if (!userData.name || !userData.phone || !userData.email || !userData.password) {
@@ -85,17 +89,19 @@ function handleRegister() {
       return
     }
     const formMessage = document.querySelector(".create-account-form-message")
-    const users = getUsers()
-    const user = users.find(user => user.email === userData.email);
-    if (user) {
-      showFormMessage(formMessage, "error", "Ya existe una cuenta con ese email")
+    console.log(userData)
+    const result = await register(userData)
+    if (!result) {
+      showFormMessage(formMessage, "error", "El correo ya se encuentra registrado")
       return
     }
-    addUser({...userData, role: "customer"})
     showFormMessage(formMessage, "success", "Cuenta creada correctamente")
     evt.target.name.value = ""
     evt.target.phone.value = ""
     evt.target.email.value = ""
     evt.target.password.value = ""
+    setTimeout(() => {
+      location.href = "/src/views/home.html"
+    }, 1500)
   })
 }
