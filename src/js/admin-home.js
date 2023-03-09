@@ -271,13 +271,13 @@ async function renderAppointmentsWithFilter(appointments) {
     }, 0)
     totalRow.append(spanTotal, `$${totalPrice}`)
     servicesContainer.appendChild(totalRow)
-    const completeButton = document.createElement("BUTTON")
-    completeButton.classList.add("complete-button")
-    completeButton.textContent = "Completar"
-    completeButton.addEventListener("click", () => {
-      console.log("Completar")
-    })
-    servicesContainer.appendChild(completeButton)
+    // const completeButton = document.createElement("BUTTON")
+    // completeButton.classList.add("complete-button")
+    // completeButton.textContent = "Completar"
+    // completeButton.addEventListener("click", () => {
+    //   console.log("Completar")
+    // })
+    // servicesContainer.appendChild(completeButton)
     container.append(idRow, dateRow, timeRow, clientRow, emailRow, phoneRow, servicesContainer)
     appointmentsContainer.append(container)
   })
