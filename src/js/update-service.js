@@ -1,29 +1,41 @@
-import { clearCookie, getCookie } from "../helpers"
-import { getUsers } from "./helpers/users"
+import { getUserByEmail } from "../db/auth.service"
+import { getServiceById, updateService } from "../db/services.service"
+import { auth } from "../firebase"
+import { clearCookie } from "../helpers"
+import { toatifyError, toatifySuccess } from "./helpers/toastify"
 
 let user = null
-document.addEventListener("DOMContentLoaded", () => {
-  initApp()
+document.addEventListener("DOMContentLoaded", async () => {
+  await initApp()
 })
 
-function initApp() {
+async function initApp() {
   renderUserData()
-  optionsNavigation()  
+  optionsNavigation()
+  await renderServiceData()
+  handleUpdateService()
 }
 
 function renderUserData() {
-  const email = getCookie("email")
-  const users = getUsers()
-  user = users.find(user => user.email === email)
-  const userName = document.querySelector(".user-data .container-data .user")
-  const text = document.createElement("SPAN")
-  text.textContent = "Hola: "
-  userName.append(text, `${user.name} (admin)`)  
-  const closeSessionButton = document.querySelector(".user-data .container-data .close-session")
-  closeSessionButton.addEventListener("click", () => {
-    clearCookie("email")
-    window.location.href = "/index.html"
+  auth.onAuthStateChanged(async (authData) => {
+    if (!authData) {
+      return window.location.href = "/index.html"
+    }
+    user = await getUserByEmail(authData.email)
+    if (user.role !== "admin") {
+      return window.location.href = "/index.html"
+    }
+    const userName = document.querySelector(".user-data .container-data .user")
+    const text = document.createElement("SPAN")
+    text.textContent = "Hola: "
+    userName.append(text, `${user.name} (admin)`)
+    const closeSessionButton = document.querySelector(".user-data .container-data .close-session")
+    closeSessionButton.addEventListener("click", () => {
+      clearCookie("email")
+      window.location.href = "/index.html"
+    })
   })
+
 }
 
 function optionsNavigation() {
@@ -41,5 +53,39 @@ function optionsNavigation() {
 
   newServiceButton.addEventListener("click", () => {
     window.location = "./home.html"
+  })
+}
+
+async function renderServiceData() {
+  const urlParams = new URLSearchParams(window.location.search)
+  const id = urlParams.get('id')
+  const service = await getServiceById(id)
+  const form = document.querySelector('.form-new-service')
+  form.name.value = service.name
+  form.price.value = service.price
+}
+
+function handleUpdateService() {
+  const form = document.querySelector('.form-new-service')
+  form.addEventListener('submit', async (e) => {
+    const urlParams = new URLSearchParams(window.location.search)
+    const id = urlParams.get('id')
+
+    e.preventDefault()
+    const name = form.name.value
+    const price = form.price.value
+    const service = {
+      name,
+      price,
+    }
+    const rta = await updateService(id, service)
+    if (!rta) {
+      toatifyError('Error al actualizar el servicio')
+      return
+    }
+    toatifySuccess('Servicio actualizado correctamente')
+    setTimeout(() => {
+      window.location.reload()
+    }, 1500)
   })
 }
